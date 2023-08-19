@@ -29,8 +29,12 @@
                 _dbContext.Tasks.Add(task);
                 await _dbContext.SaveChangesAsync();
             }
-
-            public async Task UpdateTaskAsync(int id, Tasks updatedTask)
+        public async Task AssignTaskAsync(Tasks task)
+        {
+            _dbContext.Tasks.Update(task);
+            await _dbContext.SaveChangesAsync();
+        }
+        public async Task UpdateTaskAsync(int id, Tasks updatedTask)
             {
                 var existingTask = await _dbContext.Tasks.FindAsync(id);
                 if (existingTask != null)

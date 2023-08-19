@@ -97,9 +97,8 @@ namespace TaskManagementSystem.Controllers
             }
 
             task.AssignId = user.Id;
-            //_context.Update(task);
-            //await _context.SaveChangesAsync();
-
+            await _taskRepository.AssignTaskAsync(task);
+           
             return Ok("Task assigned successfully.");
         }
 
